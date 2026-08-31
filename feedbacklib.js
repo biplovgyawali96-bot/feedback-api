@@ -14,18 +14,12 @@ function addOne(sender, message, rating, platform) {
   return newFeedback;
 }
 
-if (require.main === module) {
-  const result = addOne(
-    "John Smith",
-    "Great session on React components!",
-    5,
-    "mobile"
-  );
-
-  console.log(result);
+function getAll() {
+  return feedbackArray;
 }
 
 module.exports = {
   addOne,
+  getAll,
 };
 
