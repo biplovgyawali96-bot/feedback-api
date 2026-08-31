@@ -54,13 +54,20 @@ function update(id, updatedData) {
   return null;
 }
 
-if (require.main === module) {
-  addOne("John Smith", "Great session!", 5, "mobile");
-  addOne("Anna Brown", "Very useful examples.", 4, "desktop");
+function deleteOne(id) {
+  const feedback = findById(id);
 
-  console.log("getAll called:", getAll());
-  console.log("findById called:", findById(1));
-  console.log("update called:", update(1, { rating: 4 }));
+  if (feedback) {
+    const initialLength = feedbackArray.length;
+
+    feedbackArray = feedbackArray.filter(
+      (item) => item.id != id
+    );
+
+    return feedbackArray.length < initialLength;
+  }
+
+  return false;
 }
 
 module.exports = {
@@ -68,4 +75,5 @@ module.exports = {
   getAll,
   findById,
   update,
+  deleteOne,
 };
