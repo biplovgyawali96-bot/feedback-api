@@ -26,9 +26,17 @@ const createFeedback = (req, res) => {
 };
 
 const getFeedbackById = (req, res) => {
-  res.json({
-    message: "Hello from getFeedbackById",
-  });
+  const feedbackId = req.params.feedbackId;
+
+  const feedback = Feedback.findById(feedbackId);
+
+  if (feedback) {
+    res.json(feedback);
+  } else {
+    res.status(404).json({
+      message: "Feedback not found",
+    });
+  }
 };
 
 const updateFeedback = (req, res) => {
