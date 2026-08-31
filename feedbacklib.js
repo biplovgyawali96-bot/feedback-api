@@ -18,8 +18,14 @@ function getAll() {
   return feedbackArray;
 }
 
+if (require.main === module) {
+  addOne("John Smith", "Great session!", 5, "mobile");
+  addOne("Anna Brown", "Very useful examples.", 4, "desktop");
+
+  console.log("getAll called:", getAll());
+}
+
 module.exports = {
   addOne,
   getAll,
 };
-
