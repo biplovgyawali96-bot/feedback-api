@@ -1,32 +1,28 @@
-let feedbackArray = [];
-let nextId = 1;
+const getAllFeedbacks = (req, res) => {
+  res.json({ message: "Hello from getAllFeedbacks" });
+};
 
-function addOne(sender, message, rating, platform) {
-  const newFeedback = {
-    id: nextId++,
-    sender,
-    message,
-    rating,
-    platform,
-  };
+const createFeedback = (req, res) => {
+  res.json({ message: "Hello from createFeedback" });
+};
 
-  feedbackArray.push(newFeedback);
-  return newFeedback;
-}
+const getFeedbackById = (req, res) => {
+  res.json({ message: "Hello from getFeedbackById" });
+};
 
-function getAll() {
-  return feedbackArray;
-}
+const updateFeedback = (req, res) => {
+  res.json({ message: "Hello from updateFeedback" });
+};
 
-// Test the functions directly
-if (require.main === module) {
-  addOne("John Smith", "Great session!", 5, "mobile");
-  addOne("Anna Brown", "Very useful examples.", 4, "desktop");
-
-  console.log("getAll called:", getAll());
-}
+const deleteFeedback = (req, res) => {
+  res.json({ message: "Hello from deleteFeedback" });
+};
 
 module.exports = {
-  addOne,
-  getAll,
+  getAllFeedbacks,
+  createFeedback,
+  getFeedbackById,
+  updateFeedback,
+  deleteFeedback,
 };
+
